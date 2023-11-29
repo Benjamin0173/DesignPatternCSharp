@@ -1,6 +1,6 @@
 using System;
 
-class Bibliothèque
+public class Bibliothèque
     {
         private List<Livre> livres;
 
@@ -25,18 +25,27 @@ class Bibliothèque
             return;
         }
 
-        public List<Livre> RechercherLivres(string langue = null, bool? physique = null, string genre = null)
+        public List<Livre> RechercherLivres(string? langue = null, bool? physique = null, string? genre = null)
         {
             if (langue == null && physique == null && genre == null)
             {
                 return livres;
             }
 
-            return Console.WriteLine(livres.FindAll(l =>
+
+            //  return Console.WriteLine(livres.FindAll(l =>
+            //     (langue == null || l.Langue == langue) &&
+            //     (physique == null || l.Physique == physique) &&
+            //     (genre == null || l.Genre == genre)
+            // ));
+
+            List<Livre> result = livres.FindAll(l =>
                 (langue == null || l.Langue == langue) &&
                 (physique == null || l.Physique == physique) &&
                 (genre == null || l.Genre == genre)
-            ));
+            );
+
+            return result;
         }
 
         public void AfficherListeLivres()

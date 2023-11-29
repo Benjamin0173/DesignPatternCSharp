@@ -1,6 +1,6 @@
     using System;
 
-    class Livre : Bibliothèque
+    public class Livre : Bibliothèque
     {
         public string Titre { get; set; }
         public string Auteur { get; set; }
